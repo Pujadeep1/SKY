@@ -1,14 +1,21 @@
-# SKY - Platform Design
+Platform design available here : https://github.com/Pujadeep1/SKY/blob/main/Platform_Design.PNG
 
+I was able to create VM instances in GCP using Terraform. 
+While trying to install puppet server/agent on these instances, i encountered error as below:
 
-![image](https://user-images.githubusercontent.com/57166493/109477702-5c7c3f00-7a9e-11eb-8b6c-8cc3db91624a.png)
+Reading package lists... Done
+W: Failed to fetch http://repo.mysql.com/apt/debian/dists/buster/InRelease  Temporary failure resolving 'repo.mysql.com'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
 
+After which, starting puppet server on the instance failed. 
 
-Illustration:
+I proceeded with writing code only after this point as i could not install Jenkins via a configuration management tool on GCP VM instance. 
 
-- Provision 2 VM instances in GCP via Terraform
-- Install Puppet master on one instance and perform required configurations (Jenkins in manifests)
-- Install Puppet agent on another instance and run it to install Jenkins on this instance
-- Create a K8s cluster with GKE
-- Configure this Jenkins instance with a job to pull code from SCM that has Jenkinsfile defining the pipeline configs (Build + Deploy to K8s cluster)
+This repo contains:
 
+- Platform design 
+- Link to hello world application code : 
+- App binary
+- Terraform code for VM creation
+- Puppet code for Jenkins installation
+- Jenkinsfile added in app repo
